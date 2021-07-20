@@ -28,9 +28,11 @@ composer require douxz/ucenter
 ~~~
 
 ## 配置文件
-运行以下命令发布配置文件
-
-创建 `config/ucenter.php` 写入以下内容：
+运行以下命令发布配置文件`config/ucenter.php`
+~~~
+php artisan vendor:publish --provider="Douxz\UCenter\UCenterServiceProvider"
+~~~
+`config/ucenter.php` 内容如下：
 
 ```
 <?php
@@ -68,15 +70,15 @@ return [
 ## 路由
 
 在`routes/api.php`中写入:
+~~~
+use Douxz\UCenter\Facades\UCenter;
 
-`use Douxz\UCenter\Facades\UCenter;`
+Route::any(config('ucenter.url').'/api/'.config('ucenter.apifilename'), '\Douxz\UCenter\Controllers\ApiController@run');
 
-`Route::any(config('ucenter.url').'/api/'.config('ucenter.apifilename'), '\Douxz\UCenter\Controllers\ApiController@run');`
+// 或
 
-或
-
-`UCenter::routes();`
-
+UCenter::routes();
+~~~
 这个会添加一个api地址，用于同步登陆和退出
 
 ## 使用
