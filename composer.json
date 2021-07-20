@@ -1,0 +1,17 @@
+{
+    "name": "douxz/ucenter",
+    "description": "UCenter client for laravel5.8+",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "douxz",
+            "email": "xingzhe.dou@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Douxz\\UCenter\\": "src/"
+        }
+    }
+}
